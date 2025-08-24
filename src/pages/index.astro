@@ -1,6 +1,6 @@
 ---
-// Fecha del evento (puedes cambiar esta fecha)
-const eventDate = new Date('2025-12-15T20:00:00');
+// Fecha del evento (18 de octubre de 2025)
+const eventDate = new Date('2025-10-18T20:00:00');
 ---
 
 <html lang="es">
@@ -58,7 +58,7 @@ const eventDate = new Date('2025-12-15T20:00:00');
 						<i class="fas fa-calendar-alt"></i>
 						<div>
 							<h3>Fecha</h3>
-							<p>15 de Diciembre, 2025</p>
+							<p>18 de Octubre, 2025</p>
 						</div>
 					</div>
 					<div class="event-item">
@@ -91,7 +91,7 @@ const eventDate = new Date('2025-12-15T20:00:00');
 					<div class="dress-code-item">
 						<i class="fas fa-tshirt"></i>
 						<h3>Elegante Sport</h3>
-						<p>Ven vestido para brillar tanto como la quinceañera</p>
+						<p>Vení vestido para acompañar a la quinceañera</p>
 					</div>
 					<div class="color-palette">
 						<h4>Colores sugeridos:</h4>
@@ -112,13 +112,12 @@ const eventDate = new Date('2025-12-15T20:00:00');
 				<h2 class="section-title">¿Dónde será?</h2>
 				<div class="location-content">
 					<div class="location-info">
-						<h3>Salón de Eventos "Los Jardines"</h3>
-						<p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
-						<p><i class="fas fa-phone"></i> +54 11 1234-5678</p>
+						<h3>Janos Champagnat</h3>
+						<p><i class="fas fa-map-marker-alt"></i> San Martín 71, Pilar, Provincia de Buenos Aires</p>
 					</div>
 					<div class="map-container">
 						<iframe 
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168907034717!2d-58.38375908477028!3d-34.60373408045816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacb9f8ff113%3A0x22fd08b6c2d74288!2sPlaza%20de%20Mayo!5e0!3m2!1ses!2sar!4v1635789012345!5m2!1ses!2sar" 
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.4472868468944!2d-58.9165049!3d-34.4519258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9dfbf9512b21%3A0xf88b96fff239a654!2sJanos%20Champagnat!5e0!3m2!1ses!2sar!4v1635789012345!5m2!1ses!2sar" 
 							width="100%" 
 							height="300" 
 							style="border:0;" 
@@ -494,10 +493,10 @@ const eventDate = new Date('2025-12-15T20:00:00');
 				
 				const eventDetails = {
 					title: 'Cumpleaños de 15 años - Milena',
-					start: '20251215T200000Z',
-					end: '20251216T030000Z',
+					start: '20251018T200000',
+					end: '20251019T050000',
 					description: '¡Celebración de los 15 años de Milena!',
-					location: 'Salón de Eventos Los Jardines, Av. Principal 123, Ciudad'
+					location: 'Janos Champagnat, San Martín 71, B1629ETA Pilar, Provincia de Buenos Aires'
 				};
 
 				const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.start}/${eventDetails.end}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
@@ -519,7 +518,7 @@ const eventDate = new Date('2025-12-15T20:00:00');
 
 			// Countdown Timer
 			function updateCountdown() {
-				const eventDate = new Date('2025-12-15T20:00:00').getTime();
+				const eventDate = new Date('2025-10-18T20:00:00').getTime();
 				const now = new Date().getTime();
 				const distance = eventDate - now;
 
