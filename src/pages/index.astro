@@ -1,16 +1,552 @@
 ---
-
+// Fecha del evento (puedes cambiar esta fecha)
+const eventDate = new Date('2025-12-15T20:00:00');
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Milena - 15 Años ✨</title>
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-overlay"></div>
+			<div class="hero-content">
+				<h1 class="hero-title">Milena</h1>
+				<p class="hero-subtitle">¡Celebra mis 15 años!</p>
+				<div class="hero-decoration">✨ 💕 ✨</div>
+			</div>
+		</section>
+
+		<!-- Countdown Section -->
+		<section class="countdown-section">
+			<div class="container">
+				<h2 class="section-title">¡La fiesta está cerca!</h2>
+				<div class="countdown" id="countdown">
+					<div class="countdown-item">
+						<span class="countdown-number" id="days">00</span>
+						<span class="countdown-label">Días</span>
+					</div>
+					<div class="countdown-item">
+						<span class="countdown-number" id="hours">00</span>
+						<span class="countdown-label">Horas</span>
+					</div>
+					<div class="countdown-item">
+						<span class="countdown-number" id="minutes">00</span>
+						<span class="countdown-label">Minutos</span>
+					</div>
+					<div class="countdown-item">
+						<span class="countdown-number" id="seconds">00</span>
+						<span class="countdown-label">Segundos</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Event Details Section -->
+		<section class="event-details">
+			<div class="container">
+				<h2 class="section-title">Detalles del Evento</h2>
+				<div class="event-info">
+					<div class="event-item">
+						<i class="fas fa-calendar-alt"></i>
+						<div>
+							<h3>Fecha</h3>
+							<p>15 de Diciembre, 2025</p>
+						</div>
+					</div>
+					<div class="event-item">
+						<i class="fas fa-clock"></i>
+						<div>
+							<h3>Hora</h3>
+							<p>8:00 PM</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="action-buttons">
+					<a href="https://forms.gle/XSBFwzXy42Fjv5SN6" target="_blank" class="btn btn-primary">
+						<i class="fas fa-check-circle"></i>
+						Confirmar Asistencia
+					</a>
+					<button class="btn btn-secondary" onclick="addToCalendar()">
+						<i class="fas fa-calendar-plus"></i>
+						Agregar al Calendario
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Dress Code Section -->
+		<section class="dress-code">
+			<div class="container">
+				<h2 class="section-title">Dress Code</h2>
+				<div class="dress-code-content">
+					<div class="dress-code-item">
+						<i class="fas fa-tshirt"></i>
+						<h3>Elegante Sport</h3>
+						<p>Ven vestido para brillar tanto como la quinceañera</p>
+					</div>
+					<div class="color-palette">
+						<h4>Colores sugeridos:</h4>
+						<div class="colors">
+							<div class="color-item" style="background: #FFB6C1;">Rosa</div>
+							<div class="color-item" style="background: #DDA0DD;">Lavanda</div>
+							<div class="color-item" style="background: #87CEEB;">Azul Cielo</div>
+							<div class="color-item" style="background: #F0E68C;">Dorado</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Location Section -->
+		<section class="location">
+			<div class="container">
+				<h2 class="section-title">¿Dónde será?</h2>
+				<div class="location-content">
+					<div class="location-info">
+						<h3>Salón de Eventos "Los Jardines"</h3>
+						<p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
+						<p><i class="fas fa-phone"></i> +54 11 1234-5678</p>
+					</div>
+					<div class="map-container">
+						<iframe 
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168907034717!2d-58.38375908477028!3d-34.60373408045816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacb9f8ff113%3A0x22fd08b6c2d74288!2sPlaza%20de%20Mayo!5e0!3m2!1ses!2sar!4v1635789012345!5m2!1ses!2sar" 
+							width="100%" 
+							height="300" 
+							style="border:0;" 
+							allowfullscreen="" 
+							loading="lazy">
+						</iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Music Suggestions Section -->
+		<section class="music-suggestions">
+			<div class="container">
+				<h2 class="section-title">¡Ayúdanos con la Música!</h2>
+				<div class="music-content">
+					<p>¿Tienes alguna canción especial que te gustaría escuchar en la fiesta?</p>
+					<p>¡Comparte tus sugerencias musicales para que la pista de baile esté súper animada!</p>
+					<a href="https://forms.gle/TvhbW3bNQS9y9gZc7" target="_blank" class="btn btn-primary">
+						<i class="fas fa-music"></i>
+						Sugerir Música
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Gifts Section -->
+		<section class="gifts">
+			<div class="container">
+				<h2 class="section-title">Regalos</h2>
+				<div class="gifts-content">
+					<p>Tu presencia es el mejor regalo, pero si deseas obsequiar algo especial...</p>
+					<a href="/regalos" class="btn btn-primary">
+						<i class="fas fa-gift"></i>
+						Ver Opciones de Regalo
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<p>Con amor, Milena 💕</p>
+				<p>¡Gracias por ser parte de mi día especial!</p>
+			</div>
+		</footer>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Poppins', sans-serif;
+				line-height: 1.6;
+				color: #333;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			/* Hero Section */
+			.hero {
+				height: 100vh;
+				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: white;
+			}
+
+			.hero-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(0,0,0,0.3);
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 1;
+			}
+
+			.hero-title {
+				font-family: 'Dancing Script', cursive;
+				font-size: 4rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+			}
+
+			.hero-subtitle {
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+				font-weight: 300;
+			}
+
+			.hero-decoration {
+				font-size: 2rem;
+				animation: sparkle 2s ease-in-out infinite;
+			}
+
+			@keyframes sparkle {
+				0%, 100% { transform: scale(1); }
+				50% { transform: scale(1.1); }
+			}
+
+			/* Section Styles */
+			section {
+				padding: 80px 0;
+			}
+
+			.section-title {
+				font-family: 'Dancing Script', cursive;
+				font-size: 3rem;
+				text-align: center;
+				margin-bottom: 3rem;
+				color: #764ba2;
+			}
+
+			/* Countdown Section */
+			.countdown-section {
+				background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+				color: white;
+			}
+
+			.countdown-section .section-title {
+				color: white;
+			}
+
+			.countdown {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				flex-wrap: wrap;
+			}
+
+			.countdown-item {
+				background: rgba(255,255,255,0.2);
+				padding: 2rem;
+				border-radius: 15px;
+				text-align: center;
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255,255,255,0.3);
+			}
+
+			.countdown-number {
+				display: block;
+				font-size: 3rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+			}
+
+			.countdown-label {
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+
+			/* Event Details */
+			.event-details {
+				background: #f8f9fa;
+			}
+
+			.event-info {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+				margin-bottom: 3rem;
+			}
+
+			.event-item {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+
+			.event-item i {
+				font-size: 2rem;
+				color: #764ba2;
+			}
+
+			.action-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				padding: 1rem 2rem;
+				border: none;
+				border-radius: 50px;
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				font-size: 1rem;
+			}
+
+			.btn-primary {
+				background: linear-gradient(45deg, #667eea, #764ba2);
+				color: white;
+			}
+
+			.btn-secondary {
+				background: white;
+				color: #764ba2;
+				border: 2px solid #764ba2;
+			}
+
+			.btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+			}
+
+			/* Dress Code */
+			.dress-code {
+				background: white;
+			}
+
+			.dress-code-content {
+				text-align: center;
+			}
+
+			.dress-code-item {
+				margin-bottom: 2rem;
+			}
+
+			.dress-code-item i {
+				font-size: 3rem;
+				color: #764ba2;
+				margin-bottom: 1rem;
+			}
+
+			.color-palette {
+				margin-top: 2rem;
+			}
+
+			.colors {
+				display: flex;
+				justify-content: center;
+				gap: 1rem;
+				margin-top: 1rem;
+				flex-wrap: wrap;
+			}
+
+			.color-item {
+				padding: 1rem 1.5rem;
+				border-radius: 25px;
+				color: #333;
+				font-weight: 500;
+				box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+			}
+
+			/* Location */
+			.location {
+				background: #f8f9fa;
+			}
+
+			.location-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				align-items: center;
+			}
+
+			.location-info h3 {
+				color: #764ba2;
+				margin-bottom: 1rem;
+			}
+
+			.location-info p {
+				margin-bottom: 0.5rem;
+			}
+
+			.map-container {
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+
+			/* Music Suggestions */
+			.music-suggestions {
+				background: linear-gradient(45deg, #667eea, #764ba2);
+				color: white;
+				text-align: center;
+			}
+
+			.music-suggestions .section-title {
+				color: white;
+			}
+
+			.music-content p {
+				font-size: 1.1rem;
+				margin-bottom: 1rem;
+			}
+
+			/* Gifts */
+			.gifts {
+				background: white;
+				text-align: center;
+			}
+
+			.gifts-content p {
+				font-size: 1.1rem;
+				margin-bottom: 2rem;
+				color: #666;
+			}
+
+			/* Footer */
+			.footer {
+				background: #333;
+				color: white;
+				text-align: center;
+				padding: 2rem 0;
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.hero-title {
+					font-size: 3rem;
+				}
+
+				.section-title {
+					font-size: 2.5rem;
+				}
+
+				.countdown {
+					gap: 1rem;
+				}
+
+				.countdown-item {
+					padding: 1.5rem;
+				}
+
+				.countdown-number {
+					font-size: 2rem;
+				}
+
+				.location-content {
+					grid-template-columns: 1fr;
+				}
+
+				.action-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		</style>
+
+		<script>
+			// Add to Calendar function - disponible globalmente
+			(window as any).addToCalendar = function() {
+				console.log('Función addToCalendar ejecutada');
+				
+				const eventDetails = {
+					title: 'Cumpleaños de 15 años - Milena',
+					start: '20251215T200000Z',
+					end: '20251216T030000Z',
+					description: '¡Celebración de los 15 años de Milena!',
+					location: 'Salón de Eventos Los Jardines, Av. Principal 123, Ciudad'
+				};
+
+				const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.start}/${eventDetails.end}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
+				
+				console.log('URL generada:', googleCalendarUrl);
+				
+				try {
+					window.open(googleCalendarUrl, '_blank');
+				} catch (error) {
+					console.error('Error al abrir Google Calendar:', error);
+					// Fallback: copiar URL al portapapeles
+					navigator.clipboard.writeText(googleCalendarUrl).then(() => {
+						alert('No se pudo abrir Google Calendar automáticamente. La URL se ha copiado al portapapeles. Pégala en tu navegador para agregar el evento.');
+					}).catch(() => {
+						alert('Por favor, abre este enlace en tu navegador: ' + googleCalendarUrl);
+					});
+				}
+			};
+
+			// Countdown Timer
+			function updateCountdown() {
+				const eventDate = new Date('2025-12-15T20:00:00').getTime();
+				const now = new Date().getTime();
+				const distance = eventDate - now;
+
+				if (distance > 0) {
+					const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+					const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+					const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+					const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+					const daysEl = document.getElementById('days');
+					const hoursEl = document.getElementById('hours');
+					const minutesEl = document.getElementById('minutes');
+					const secondsEl = document.getElementById('seconds');
+
+					if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+					if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+					if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+					if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+				} else {
+					const countdownEl = document.getElementById('countdown');
+					if (countdownEl) countdownEl.innerHTML = '<h2>¡La fiesta ha comenzado! 🎉</h2>';
+				}
+			}
+
+			// Update countdown every second
+			setInterval(updateCountdown, 1000);
+			updateCountdown();
+		</script>
 	</body>
 </html>
