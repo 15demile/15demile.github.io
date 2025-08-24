@@ -1,6 +1,6 @@
 ---
-// Fecha del evento (18 de octubre de 2025)
-const eventDate = new Date('2025-10-18T20:00:00');
+// Fecha del evento (18 de octubre de 2025 a las 21:00)
+const eventDate = new Date('2025-10-18T21:00:00');
 ---
 
 <html lang="es">
@@ -65,7 +65,7 @@ const eventDate = new Date('2025-10-18T20:00:00');
 						<i class="fas fa-clock"></i>
 						<div>
 							<h3>Hora</h3>
-							<p>8:00 PM</p>
+							<p>9:00 PM</p>
 						</div>
 					</div>
 				</div>
@@ -149,10 +149,10 @@ const eventDate = new Date('2025-10-18T20:00:00');
 			<div class="container">
 				<h2 class="section-title">Regalos</h2>
 				<div class="gifts-content">
-					<p>Tu presencia es el mejor regalo, pero si deseas obsequiar algo especial...</p>
+					<p>TTu presencia es el mejor regalo, pero si querés regalar algo aún mejor...</p>
 					<a href="/regalos" class="btn btn-primary">
 						<i class="fas fa-gift"></i>
-						Ver Opciones de Regalo
+						Ver Opciones
 					</a>
 				</div>
 			</div>
@@ -163,6 +163,11 @@ const eventDate = new Date('2025-10-18T20:00:00');
 			<div class="container">
 				<p>Con amor, Milena 💕</p>
 				<p>¡Gracias por ser parte de mi día especial!</p>
+				
+				<div class="footer-contact">
+					<p>¿Te gustó esta invitación? <a href="https://wa.me/541121619240" target="_blank" rel="noopener noreferrer" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Contactame</a></p>
+				</div>
+				
 				<div class="footer-credits">
 					<p>Hecho por <a href="https://www.linkedin.com/in/kevin-caria/" target="_blank" rel="noopener noreferrer"><strong>kevincaria</strong></a></p>
 				</div>
@@ -456,8 +461,45 @@ const eventDate = new Date('2025-10-18T20:00:00');
 				padding: 2rem 0;
 			}
 
+			.footer-contact {
+				margin-top: 3rem;
+				padding-top: 2rem;
+				border-top: 2px solid rgba(255,255,255,0.1);
+			}
+
+			.footer-contact p {
+				font-size: 1.1rem;
+				margin-bottom: 0;
+				color: #fff;
+			}
+
+			.whatsapp-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				background: #25D366;
+				color: white;
+				padding: 0.4rem 1rem;
+				border-radius: 20px;
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.3s ease;
+				margin-left: 0.5rem;
+				font-size: 0.95rem;
+			}
+
+			.whatsapp-link:hover {
+				background: #1DA851;
+				transform: translateY(-1px);
+				box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+			}
+
+			.whatsapp-link i {
+				font-size: 1.1rem;
+			}
+
 			.footer-credits {
-				margin-top: 1rem;
+				margin-top: 2rem;
 				padding-top: 1rem;
 				border-top: 1px solid rgba(255,255,255,0.1);
 			}
@@ -523,9 +565,9 @@ const eventDate = new Date('2025-10-18T20:00:00');
 				
 				const eventDetails = {
 					title: 'Cumpleaños de 15 años - Milena',
-					start: '20251018T200000',
+					start: '20251018T210000',
 					end: '20251019T050000',
-					description: '¡Celebración de los 15 años de Milena!',
+					description: '¡Fiesta de los 15 años de Milena!',
 					location: 'Janos Champagnat, San Martín 71, B1629ETA Pilar, Provincia de Buenos Aires'
 				};
 
@@ -548,7 +590,7 @@ const eventDate = new Date('2025-10-18T20:00:00');
 
 			// Countdown Timer
 			function updateCountdown() {
-				const eventDate = new Date('2025-10-18T20:00:00').getTime();
+				const eventDate = new Date('2025-10-18T21:00:00').getTime();
 				const now = new Date().getTime();
 				const distance = eventDate - now;
 
@@ -569,7 +611,7 @@ const eventDate = new Date('2025-10-18T20:00:00');
 					if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
 				} else {
 					const countdownEl = document.getElementById('countdown');
-					if (countdownEl) countdownEl.innerHTML = '<h2>¡La fiesta ha comenzado! 🎉</h2>';
+					if (countdownEl) countdownEl.innerHTML = '<h2>¡La fiesta empezó! 🎉</h2>';
 				}
 			}
 

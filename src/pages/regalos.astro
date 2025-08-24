@@ -26,7 +26,7 @@
 		<section class="hero">
 			<div class="container">
 				<h1 class="hero-title">Regalos para Milena</h1>
-				<p class="hero-subtitle">Tu presencia es el mejor regalo, pero si querés darle algo aún mejor...</p>
+				<p class="hero-subtitle">Tu presencia es el mejor regalo, pero si querés regalar algo aún mejor...</p>
 			</div>
 		</section>
 
@@ -41,7 +41,7 @@
 						</div>
 						<h3>Transferencia</h3>
 						<p class="gift-description">
-							Envía tu regalo de manera directa
+							Enviá tu regalo de manera directa
 						</p>
 						<div class="bank-details">
 							<div class="detail-item">
@@ -57,7 +57,7 @@
 								<button class="copy-btn" onclick="copyToClipboard('María Elena González')">
 									<i class="fas fa-copy"></i>
 								</button>
-							</div>
+							</div> 
 							<div class="detail-item">
 								<span class="label">CBU:</span>
 								<span class="value">0110599520000012345678</span>
@@ -98,7 +98,16 @@
 		<!-- Footer -->
 		<footer class="footer">
 			<div class="container">
-				<p>Con amor, Familia Verdún 💕</p>
+				<p>Con amor, Milena 💕</p>
+				<p>¡Gracias por ser parte de mi día especial!</p>
+				
+				<div class="footer-contact">
+					<p>¿Te gustó esta invitación? <a href="https://wa.me/541121619240" target="_blank" rel="noopener noreferrer" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Contáctame</a></p>
+				</div>
+				
+				<div class="footer-credits">
+					<p>Hecho por <a href="https://www.linkedin.com/in/kevin-caria/" target="_blank" rel="noopener noreferrer"><strong>kevincaria</strong></a></p>
+				</div>
 			</div>
 		</footer>
 
@@ -356,6 +365,70 @@
 				padding: 2rem 0;
 			}
 
+			.footer-contact {
+				margin-top: 3rem;
+				padding-top: 2rem;
+				border-top: 2px solid rgba(255,255,255,0.1);
+			}
+
+			.footer-contact p {
+				font-size: 1.1rem;
+				margin-bottom: 0;
+				color: #fff;
+			}
+
+			.whatsapp-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				background: #25D366;
+				color: white;
+				padding: 0.4rem 1rem;
+				border-radius: 20px;
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.3s ease;
+				margin-left: 0.5rem;
+				font-size: 0.95rem;
+			}
+
+			.whatsapp-link:hover {
+				background: #1DA851;
+				transform: translateY(-1px);
+				box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+			}
+
+			.whatsapp-link i {
+				font-size: 1.1rem;
+			}
+
+			.footer-credits {
+				margin-top: 2rem;
+				padding-top: 1rem;
+				border-top: 1px solid rgba(255,255,255,0.1);
+			}
+
+			.footer-credits p {
+				font-size: 0.9rem;
+				opacity: 0.8;
+				color: #ccc;
+			}
+
+			.footer-credits a {
+				color: #667eea;
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+
+			.footer-credits a:hover {
+				color: #764ba2;
+				text-decoration: underline;
+			}
+
+			.footer-credits strong {
+				font-weight: 600;
+			}
+
 			/* Toast Notification */
 			.toast {
 				position: fixed;
@@ -401,13 +474,44 @@
 			}
 		</style>
 
-		<script>
-			function copyToClipboard(text: string) {
-				navigator.clipboard.writeText(text).then(function() {
-					showToast();
-				}).catch(function(err) {
+		<script is:inline>
+			function copyToClipboard(text) {
+				if (navigator.clipboard && navigator.clipboard.writeText) {
+					navigator.clipboard.writeText(text).then(function() {
+						showToast();
+					}).catch(function(err) {
+						console.error('Error al copiar con clipboard API: ', err);
+						// Fallback para navegadores que no soportan clipboard API
+						fallbackCopyTextToClipboard(text);
+					});
+				} else {
+					// Fallback para navegadores más antiguos
+					fallbackCopyTextToClipboard(text);
+				}
+			}
+
+			function fallbackCopyTextToClipboard(text) {
+				const textArea = document.createElement('textarea');
+				textArea.value = text;
+				textArea.style.position = 'fixed';
+				textArea.style.left = '-999999px';
+				textArea.style.top = '-999999px';
+				document.body.appendChild(textArea);
+				textArea.focus();
+				textArea.select();
+				
+				try {
+					const successful = document.execCommand('copy');
+					if (successful) {
+						showToast();
+					} else {
+						console.error('Error al copiar con fallback');
+					}
+				} catch (err) {
 					console.error('Error al copiar: ', err);
-				});
+				}
+				
+				document.body.removeChild(textArea);
 			}
 
 			function showToast() {
