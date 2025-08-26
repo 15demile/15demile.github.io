@@ -276,7 +276,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			height: 150px;
 			object-fit: contain;
 			opacity: 0.6;
-			filter: brightness(1.1) contrast(1.1);
+			filter: brightness(0.8) contrast(1.2) sepia(0.3) hue-rotate(20deg) saturate(1.1);
 			transition: all 0.3s ease;
 		}
 
@@ -340,10 +340,14 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		}
 
 		/* Efectos hover */
-		.hero:hover .floral-corner-image,
-		.hero:hover .floral-middle-image {
+		.hero:hover .floral-corner-image {
 			opacity: 0.9;
 			filter: brightness(1.2) contrast(1.2);
+		}
+
+		.hero:hover .floral-middle-image {
+			opacity: 0.8;
+			filter: brightness(0.9) contrast(1.3) sepia(0.4) hue-rotate(20deg) saturate(1.2);
 		}
 
 		/* Animación sutil */
@@ -352,14 +356,18 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			50% { filter: brightness(1.2) contrast(1.2); }
 		}
 
-		.floral-corner-image,
-		.floral-middle-image {
+		@keyframes floralGlowMiddle {
+			0%, 100% { filter: brightness(0.8) contrast(1.2) sepia(0.3) hue-rotate(20deg) saturate(1.1); }
+			50% { filter: brightness(0.9) contrast(1.3) sepia(0.4) hue-rotate(20deg) saturate(1.2); }
+		}
+
+		.floral-corner-image {
 			animation: floralGlow 4s ease-in-out infinite;
 		}
 
 		/* Animación alternativa para las flores del medio */
 		.floral-middle-image {
-			animation: floralGlow 5s ease-in-out infinite;
+			animation: floralGlowMiddle 5s ease-in-out infinite;
 			animation-delay: 1s;
 		}			.hero-overlay {
 				position: absolute;
@@ -712,29 +720,29 @@ const eventDate = new Date('2025-10-18T21:30:00');
 					align-items: center;
 				}
 
-				/* Flores más pequeñas en móviles */
+				/* Flores más grandes para móviles - tamaño mejorado */
 				.floral-corner-image {
-					width: 120px;
-					height: 120px;
+					width: 160px;
+					height: 160px;
 				}
 
 				.floral-middle-image {
-					width: 90px;
-					height: 90px;
+					width: 120px;
+					height: 120px;
 				}
 			}
 
 			@media (max-width: 480px) {
 				.floral-corner-image {
-					width: 80px;
-					height: 80px;
-					opacity: 0.5;
+					width: 140px;
+					height: 140px;
+					opacity: 0.6;
 				}
 
 				.floral-middle-image {
-					width: 60px;
-					height: 60px;
-					opacity: 0.4;
+					width: 100px;
+					height: 100px;
+					opacity: 0.5;
 				}
 			}
 		</style>
