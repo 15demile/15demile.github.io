@@ -18,7 +18,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 	<section class="hero">
 		<div class="hero-overlay"></div>
 		<div class="hero-decorative-corners">
-			<!-- Solo una flor en cada esquina con rotaciones en sentido horario -->
+			<!-- Flores en las esquinas con rotaciones en sentido horario -->
 			<div class="corner-decoration top-left">
 				<img src="/flor-margen.png" alt="Decoración floral" class="floral-corner-image" />
 			</div>
@@ -30,6 +30,20 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			</div>
 			<div class="corner-decoration bottom-left">
 				<img src="/flor-margen.png" alt="Decoración floral" class="floral-corner-image rotated-270" />
+			</div>
+			
+			<!-- Flores en el medio de cada borde -->
+			<div class="middle-decoration center-top">
+				<img src="/flor-medio-transparent.svg" alt="Decoración floral central" class="floral-middle-image" />
+			</div>
+			<div class="middle-decoration center-right">
+				<img src="/flor-medio-transparent.svg" alt="Decoración floral central" class="floral-middle-image" />
+			</div>
+			<div class="middle-decoration center-bottom">
+				<img src="/flor-medio-transparent.svg" alt="Decoración floral central" class="floral-middle-image" />
+			</div>
+			<div class="middle-decoration center-left">
+				<img src="/flor-medio-transparent.svg" alt="Decoración floral central" class="floral-middle-image" />
 			</div>
 		</div>
 		<div class="hero-content">
@@ -252,6 +266,20 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			transition: all 0.3s ease;
 		}
 
+		/* Decoraciones del medio de los bordes */
+		.middle-decoration {
+			position: absolute;
+		}
+
+		.floral-middle-image {
+			width: 150px;
+			height: 150px;
+			object-fit: contain;
+			opacity: 0.6;
+			filter: brightness(1.1) contrast(1.1);
+			transition: all 0.3s ease;
+		}
+
 		/* Rotaciones en sentido horario */
 		.rotated-90 {
 			transform: rotate(90deg);
@@ -286,8 +314,34 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			left: 0;
 		}
 
+		/* Posiciones del medio de cada borde - rotación antihoraria */
+		.middle-decoration.center-top {
+			top: -20px;
+			left: 50%;
+			transform: translateX(-50%) rotate(180deg);
+		}
+
+		.middle-decoration.center-right {
+			right: -20px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-90deg);
+		}
+
+		.middle-decoration.center-bottom {
+			bottom: -30px;
+			left: 50%;
+			transform: translateX(-50%) rotate(0deg);
+		}
+
+		.middle-decoration.center-left {
+			left: -20px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-270deg);
+		}
+
 		/* Efectos hover */
-		.hero:hover .floral-corner-image {
+		.hero:hover .floral-corner-image,
+		.hero:hover .floral-middle-image {
 			opacity: 0.9;
 			filter: brightness(1.2) contrast(1.2);
 		}
@@ -298,8 +352,15 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			50% { filter: brightness(1.2) contrast(1.2); }
 		}
 
-		.floral-corner-image {
+		.floral-corner-image,
+		.floral-middle-image {
 			animation: floralGlow 4s ease-in-out infinite;
+		}
+
+		/* Animación alternativa para las flores del medio */
+		.floral-middle-image {
+			animation: floralGlow 5s ease-in-out infinite;
+			animation-delay: 1s;
 		}			.hero-overlay {
 				position: absolute;
 				top: 0;
@@ -656,6 +717,11 @@ const eventDate = new Date('2025-10-18T21:30:00');
 					width: 120px;
 					height: 120px;
 				}
+
+				.floral-middle-image {
+					width: 90px;
+					height: 90px;
+				}
 			}
 
 			@media (max-width: 480px) {
@@ -663,6 +729,12 @@ const eventDate = new Date('2025-10-18T21:30:00');
 					width: 80px;
 					height: 80px;
 					opacity: 0.5;
+				}
+
+				.floral-middle-image {
+					width: 60px;
+					height: 60px;
+					opacity: 0.4;
 				}
 			}
 		</style>
