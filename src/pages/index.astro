@@ -578,85 +578,63 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				top: -120px;
 				left: 50%;
 				transform: translateX(-50%);
-				animation: outerFlowerFloat 4s ease-in-out infinite, outerFlowerGlow 3s ease-in-out infinite;
+				animation: outerFlowerGlow 8s ease-in-out infinite;
 			}
 
 			.outer-flower.top-flower.left-flower {
 				top: -120px;
 				left: 20%;
 				transform: translateX(-50%);
-				animation: outerFlowerFloat 4.5s ease-in-out infinite, outerFlowerGlow 3.5s ease-in-out infinite;
-				animation-delay: 0.5s, 0.3s;
+				animation: outerFlowerGlow 8s ease-in-out infinite;
+				animation-delay: 0.5s;
 			}
 
 			.outer-flower.top-flower.right-flower {
 				top: -120px;
 				left: 80%;
 				transform: translateX(-50%);
-				animation: outerFlowerFloat 3.8s ease-in-out infinite, outerFlowerGlow 2.8s ease-in-out infinite;
-				animation-delay: 1s, 0.8s;
+				animation: outerFlowerGlow 8s ease-in-out infinite;
+				animation-delay: 1s;
 			}
 
 			.outer-flower.bottom-flower.center-flower {
 				bottom: -120px;
 				left: 50%;
 				transform: translateX(-50%) rotate(180deg);
-				animation: outerFlowerFloatBottom 4s ease-in-out infinite, outerFlowerGlow 3s ease-in-out infinite;
+				animation: outerFlowerGlow 8s ease-in-out infinite;
 			}
 
 			.outer-flower.bottom-flower.left-flower {
 				bottom: -120px;
 				left: 20%;
 				transform: translateX(-50%) rotate(180deg);
-				animation: outerFlowerFloatBottom 4.2s ease-in-out infinite, outerFlowerGlow 3.2s ease-in-out infinite;
-				animation-delay: 0.7s, 0.4s;
+				animation: outerFlowerGlow 8s ease-in-out infinite;
+				animation-delay: 0.7s;
 			}
 
 			.outer-flower.bottom-flower.right-flower {
 				bottom: -120px;
 				left: 80%;
 				transform: translateX(-50%) rotate(180deg);
-				animation: outerFlowerFloatBottom 4.8s ease-in-out infinite, outerFlowerGlow 3.8s ease-in-out infinite;
-				animation-delay: 1.2s, 1s;
+				animation: outerFlowerGlow 8s ease-in-out infinite;
+				animation-delay: 1.2s;
 			}
 
 			.outer-flower .flower-decoration {
 				width: 80px;
 				height: auto;
-				opacity: 0.8;
-				filter: brightness(1.1) contrast(1.1) saturate(1.3);
+				opacity: 0.9;
+				filter: brightness(1.4) contrast(1.2) saturate(1.1) hue-rotate(-10deg);
 				transition: all 0.3s ease;
 			}
 
-			/* Animación para el marco decorativo */
+			/* Animación simplificada para el marco decorativo */
 			@keyframes frameGlow {
 				0%, 100% { 
-					box-shadow: 0 0 20px rgba(218, 165, 32, 0.3), 
-					           inset 0 0 20px rgba(255, 255, 255, 0.1);
-					transform: scale(1);
+					box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
 				}
 				50% { 
-					box-shadow: 0 0 40px rgba(218, 165, 32, 0.6), 
-					           inset 0 0 30px rgba(255, 255, 255, 0.2);
-					transform: scale(1.02);
-				}
-			}
-
-			@keyframes borderShimmer {
-				0% { 
-					border-image: linear-gradient(45deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
-				}
-				25% { 
-					border-image: linear-gradient(90deg, #B8860B, #CD853F, #DAA520, #B8860B) 1;
-				}
-				50% { 
-					border-image: linear-gradient(135deg, #CD853F, #DAA520, #B8860B, #CD853F) 1;
-				}
-				75% { 
-					border-image: linear-gradient(180deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
-				}
-				100% { 
-					border-image: linear-gradient(45deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
+					box-shadow: 0 0 25px rgba(218, 165, 32, 0.5);
 				}
 			}
 
@@ -671,13 +649,10 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 			@keyframes ornamentPulse {
 				0%, 100% { 
-					transform: scale(1) rotate(0deg);
-					box-shadow: 0 0 15px rgba(218, 165, 32, 0.6);
+					opacity: 0.8;
 				}
 				50% { 
-					transform: scale(1.2) rotate(180deg);
-					box-shadow: 0 0 25px rgba(218, 165, 32, 0.9),
-					           0 0 35px rgba(218, 165, 32, 0.4);
+					opacity: 1;
 				}
 			}
 
@@ -691,14 +666,11 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			}
 
 			.decorative-frame {
-				animation: frameGlow 4s ease-in-out infinite, 
-				          borderShimmer 6s linear infinite, 
-				          frameFloat 3s ease-in-out infinite;
+				animation: frameGlow 6s ease-in-out infinite;
 			}
 
 			.decorative-frame .corner-ornament {
-				animation: ornamentPulse 6s ease-in-out infinite, 
-				          ornamentGlow 4s ease-in-out infinite;
+				animation: ornamentPulse 8s ease-in-out infinite;
 			}
 
 			.decorative-frame .corner-ornament:nth-child(2) {
@@ -713,35 +685,25 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				animation-delay: 1.5s;
 			}
 
-			/* Animación para las decoraciones laterales */
+			/* Animación simplificada para las decoraciones laterales */
 			.decorative-frame .side-decoration {
-				animation: decorativeGlow 4s ease-in-out infinite, 
-				          decorativeShimmer 6s linear infinite;
+				animation: decorativeGlow 8s ease-in-out infinite;
 			}
 
 			.decorative-frame .side-decoration.left-side {
-				animation: decorativeGlow 4s ease-in-out infinite, 
-				          decorativeShimmer 6s linear infinite,
-				          sideDecorativeFloat 5s ease-in-out infinite;
-				animation-delay: 1s, 2s, 2.5s;
+				animation-delay: 1s;
 			}
 
 			.decorative-frame .side-decoration.right-side {
-				animation: decorativeGlow 4s ease-in-out infinite, 
-				          decorativeShimmer 6s linear infinite,
-				          sideDecorativeFloatRight 5s ease-in-out infinite;
-				animation-delay: 1.5s, 3s, 3.5s;
+				animation-delay: 2s;
 			}
 
 			@keyframes decorativeGlow {
 				0%, 100% { 
-					text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
-					transform: scale(1);
+					opacity: 0.8;
 				}
 				50% { 
-					text-shadow: 0 0 20px rgba(218, 165, 32, 0.9), 
-					           0 0 30px rgba(218, 165, 32, 0.6);
-					transform: scale(1.1);
+					opacity: 1;
 				}
 			}
 
@@ -830,32 +792,14 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				}
 			}
 
-			@keyframes outerFlowerFloat {
-				0%, 100% { 
-					transform: translateX(-50%) translateY(0px) scale(1);
-				}
-				50% { 
-					transform: translateX(-50%) translateY(-5px) scale(1.1);
-				}
-			}
-
-			@keyframes outerFlowerFloatBottom {
-				0%, 100% { 
-					transform: translateX(-50%) rotate(180deg) translateY(0px) scale(1);
-				}
-				50% { 
-					transform: translateX(-50%) rotate(180deg) translateY(-5px) scale(1.1);
-				}
-			}
-
 			@keyframes outerFlowerGlow {
 				0%, 100% {
-					filter: brightness(1.1) contrast(1.1) saturate(1.3);
-					opacity: 0.8;
+					opacity: 0.9;
+					filter: brightness(1.4) contrast(1.2) saturate(1.1) hue-rotate(-10deg);
 				}
 				50% {
-					filter: brightness(1.4) contrast(1.3) saturate(1.5) drop-shadow(0 0 15px rgba(218, 165, 32, 0.7));
 					opacity: 1;
+					filter: brightness(1.7) contrast(1.4) saturate(1.3) hue-rotate(-5deg) drop-shadow(0 0 8px rgba(255, 223, 150, 0.6));
 				}
 			}
 
