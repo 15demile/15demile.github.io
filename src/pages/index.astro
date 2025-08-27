@@ -47,6 +47,14 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			</div>
 		</div>
 		<div class="hero-content">
+			<div class="outer-flowers">
+				<div class="outer-flower top-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada superior" class="flower-decoration" />
+				</div>
+				<div class="outer-flower bottom-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada inferior" class="flower-decoration" />
+				</div>
+			</div>
 			<div class="decorative-frame">
 				<div class="frame-decoration top-decoration">
 					<img src="/decoracion_dorada.png" alt="Decoración dorada superior" class="golden-decoration" />
@@ -541,6 +549,40 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				animation: goldenDecorationFloatBottom 5s ease-in-out infinite 1s;
 			}
 
+			/* Flores exteriores arriba y abajo del marco */
+			.outer-flowers {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 1;
+			}
+
+			.outer-flower {
+				position: absolute;
+				left: 50%;
+			}
+
+			.outer-flower.top-flower {
+				top: -120px;
+				transform: translateX(-50%);
+				animation: outerFlowerFloat 4s ease-in-out infinite, outerFlowerGlow 3s ease-in-out infinite;
+			}
+
+			.outer-flower.bottom-flower {
+				bottom: -120px;
+				transform: translateX(-50%) rotate(180deg);
+				animation: outerFlowerFloatBottom 4s ease-in-out infinite, outerFlowerGlow 3s ease-in-out infinite;
+			}
+
+			.outer-flower .flower-decoration {
+				width: 80px;
+				height: auto;
+				opacity: 0.8;
+				filter: brightness(1.1) contrast(1.1) saturate(1.3);
+				transition: all 0.3s ease;
+			}
+
 			/* Animación para el marco decorativo */
 			@keyframes frameGlow {
 				0%, 100% { 
@@ -739,6 +781,35 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				}
 				50% {
 					filter: brightness(1.3) contrast(1.2) saturate(1.4) drop-shadow(0 0 10px rgba(218, 165, 32, 0.6));
+					opacity: 1;
+				}
+			}
+
+			@keyframes outerFlowerFloat {
+				0%, 100% { 
+					transform: translateX(-50%) translateY(0px) scale(1);
+				}
+				50% { 
+					transform: translateX(-50%) translateY(-5px) scale(1.1);
+				}
+			}
+
+			@keyframes outerFlowerFloatBottom {
+				0%, 100% { 
+					transform: translateX(-50%) rotate(180deg) translateY(0px) scale(1);
+				}
+				50% { 
+					transform: translateX(-50%) rotate(180deg) translateY(-5px) scale(1.1);
+				}
+			}
+
+			@keyframes outerFlowerGlow {
+				0%, 100% {
+					filter: brightness(1.1) contrast(1.1) saturate(1.3);
+					opacity: 0.8;
+				}
+				50% {
+					filter: brightness(1.4) contrast(1.3) saturate(1.5) drop-shadow(0 0 15px rgba(218, 165, 32, 0.7));
 					opacity: 1;
 				}
 			}
@@ -1146,6 +1217,19 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				.decorative-frame .frame-decoration.bottom-decoration {
 					bottom: -30px;
 				}
+
+				/* Flores exteriores responsive */
+				.outer-flower .flower-decoration {
+					width: 70px;
+				}
+
+				.outer-flower.top-flower {
+					top: -100px;
+				}
+
+				.outer-flower.bottom-flower {
+					bottom: -100px;
+				}
 			}
 
 			@media (max-width: 480px) {
@@ -1222,6 +1306,19 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 				.decorative-frame .frame-decoration.bottom-decoration {
 					bottom: -25px;
+				}
+
+				/* Flores exteriores en móviles */
+				.outer-flower .flower-decoration {
+					width: 60px;
+				}
+
+				.outer-flower.top-flower {
+					top: -80px;
+				}
+
+				.outer-flower.bottom-flower {
+					bottom: -80px;
 				}
 			}
 		</style>
