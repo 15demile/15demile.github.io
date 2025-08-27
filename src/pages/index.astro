@@ -47,9 +47,16 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			</div>
 		</div>
 		<div class="hero-content">
-			<h1 class="hero-title">Milena</h1>
-			<p class="hero-subtitle">¡Celebra mis 15 años!</p>
-			<div class="hero-decoration">✨ 💕 ✨</div>
+			<div class="decorative-frame">
+				<div class="corner-ornament top-left"></div>
+				<div class="corner-ornament top-right"></div>
+				<div class="corner-ornament bottom-left"></div>
+				<div class="corner-ornament bottom-right"></div>
+				<div class="side-decoration left-side">✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦</div>
+				<div class="side-decoration right-side">✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦</div>
+				<h1 class="hero-title">Milena</h1>
+				<p class="hero-subtitle">¡Celebra mis 15 años!</p>
+			</div>
 		</div>
 	</section>		<!-- Countdown Section -->
 		<section class="countdown-section">
@@ -223,7 +230,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		/* Hero Section */
 		.hero {
 			height: 100vh;
-			background: linear-gradient(135deg, #B8860B 0%, #8B7355 100%);
+			background: linear-gradient(135deg, #ffbf1c 0%, #f8b877 100%);
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -239,7 +246,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			left: 0;
 			right: 0;
 			bottom: 0;
-			background: rgba(0,0,0,0.3);
+			background: rgba(0,0,0,0.12);
 		}
 
 		/* Decoraciones florales de esquina */
@@ -383,18 +390,303 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				z-index: 1;
 			}
 
+			.decorative-frame {
+				position: relative;
+				padding: 3rem 4rem;
+				border: 3px solid;
+				border-image: linear-gradient(45deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
+				border-radius: 20px;
+				margin: 2rem auto;
+				max-width: 600px;
+				background: rgba(255, 255, 255, 0.05);
+			}
+
+			.decorative-frame::before {
+				content: '✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦';
+				position: absolute;
+				top: -8px;
+				left: 50%;
+				background: linear-gradient(45deg, #DAA520, #B8860B);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				font-size: 1.2rem;
+				white-space: nowrap;
+				text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+				animation: decorativeGlow 3s ease-in-out infinite, 
+				          decorativeShimmer 5s linear infinite,
+				          decorativeFloat 4s ease-in-out infinite;
+			}
+
+			.decorative-frame::after {
+				content: '✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦';
+				position: absolute;
+				bottom: -8px;
+				left: 50%;
+				background: linear-gradient(45deg, #DAA520, #B8860B);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				font-size: 1.2rem;
+				white-space: nowrap;
+				text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+				animation: decorativeGlow 3s ease-in-out infinite 0.5s, 
+				          decorativeShimmer 5s linear infinite 1s,
+				          decorativeFloat 4s ease-in-out infinite 1s;
+			}
+
+			/* Decoraciones adicionales en las esquinas del marco */
+			.decorative-frame .corner-ornament {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				background: linear-gradient(45deg, #DAA520, #B8860B);
+				border-radius: 50%;
+				opacity: 0.8;
+				box-shadow: 0 0 15px rgba(218, 165, 32, 0.6);
+			}
+
+			.decorative-frame .corner-ornament::before {
+				content: '❋';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: white;
+				font-size: 1.2rem;
+				text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+			}
+
+			.decorative-frame .corner-ornament.top-left {
+				top: -15px;
+				left: -15px;
+			}
+
+			.decorative-frame .corner-ornament.top-right {
+				top: -15px;
+				right: -15px;
+			}
+
+			.decorative-frame .corner-ornament.bottom-left {
+				bottom: -15px;
+				left: -15px;
+			}
+
+			.decorative-frame .corner-ornament.bottom-right {
+				bottom: -15px;
+				right: -15px;
+			}
+
+			/* Decoraciones laterales */
+			.decorative-frame .side-decoration {
+				position: absolute;
+				background: linear-gradient(45deg, #DAA520, #B8860B);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				font-size: 1.2rem;
+				text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+				transform-origin: center;
+			}
+
+			.decorative-frame .side-decoration.left-side {
+				left: -80px !important;
+				top: 50%;
+				transform: translateY(-50%) rotate(-90deg);
+			}
+
+			.decorative-frame .side-decoration.right-side {
+				right: -80px !important;
+				top: 50%;
+				transform: translateY(-50%) rotate(90deg);
+			}
+
+			/* Animación para el marco decorativo */
+			@keyframes frameGlow {
+				0%, 100% { 
+					box-shadow: 0 0 20px rgba(218, 165, 32, 0.3), 
+					           inset 0 0 20px rgba(255, 255, 255, 0.1);
+					transform: scale(1);
+				}
+				50% { 
+					box-shadow: 0 0 40px rgba(218, 165, 32, 0.6), 
+					           inset 0 0 30px rgba(255, 255, 255, 0.2);
+					transform: scale(1.02);
+				}
+			}
+
+			@keyframes borderShimmer {
+				0% { 
+					border-image: linear-gradient(45deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
+				}
+				25% { 
+					border-image: linear-gradient(90deg, #B8860B, #CD853F, #DAA520, #B8860B) 1;
+				}
+				50% { 
+					border-image: linear-gradient(135deg, #CD853F, #DAA520, #B8860B, #CD853F) 1;
+				}
+				75% { 
+					border-image: linear-gradient(180deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
+				}
+				100% { 
+					border-image: linear-gradient(45deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
+				}
+			}
+
+			@keyframes frameFloat {
+				0%, 100% { 
+					transform: translateY(0px);
+				}
+				50% { 
+					transform: translateY(-5px);
+				}
+			}
+
+			@keyframes ornamentPulse {
+				0%, 100% { 
+					transform: scale(1) rotate(0deg);
+					box-shadow: 0 0 15px rgba(218, 165, 32, 0.6);
+				}
+				50% { 
+					transform: scale(1.2) rotate(180deg);
+					box-shadow: 0 0 25px rgba(218, 165, 32, 0.9),
+					           0 0 35px rgba(218, 165, 32, 0.4);
+				}
+			}
+
+			@keyframes ornamentGlow {
+				0%, 100% {
+					background: linear-gradient(45deg, #DAA520, #B8860B);
+				}
+				50% {
+					background: linear-gradient(135deg, #CD853F, #DAA520);
+				}
+			}
+
+			.decorative-frame {
+				animation: frameGlow 4s ease-in-out infinite, 
+				          borderShimmer 6s linear infinite, 
+				          frameFloat 3s ease-in-out infinite;
+			}
+
+			.decorative-frame .corner-ornament {
+				animation: ornamentPulse 6s ease-in-out infinite, 
+				          ornamentGlow 4s ease-in-out infinite;
+			}
+
+			.decorative-frame .corner-ornament:nth-child(2) {
+				animation-delay: 0.5s;
+			}
+
+			.decorative-frame .corner-ornament:nth-child(3) {
+				animation-delay: 1s;
+			}
+
+			.decorative-frame .corner-ornament:nth-child(4) {
+				animation-delay: 1.5s;
+			}
+
+			/* Animación para las decoraciones laterales */
+			.decorative-frame .side-decoration {
+				animation: decorativeGlow 4s ease-in-out infinite, 
+				          decorativeShimmer 6s linear infinite;
+			}
+
+			.decorative-frame .side-decoration.left-side {
+				animation: decorativeGlow 4s ease-in-out infinite, 
+				          decorativeShimmer 6s linear infinite,
+				          sideDecorativeFloat 5s ease-in-out infinite;
+				animation-delay: 1s, 2s, 2.5s;
+			}
+
+			.decorative-frame .side-decoration.right-side {
+				animation: decorativeGlow 4s ease-in-out infinite, 
+				          decorativeShimmer 6s linear infinite,
+				          sideDecorativeFloatRight 5s ease-in-out infinite;
+				animation-delay: 1.5s, 3s, 3.5s;
+			}
+
+			@keyframes decorativeGlow {
+				0%, 100% { 
+					text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+					transform: scale(1);
+				}
+				50% { 
+					text-shadow: 0 0 20px rgba(218, 165, 32, 0.9), 
+					           0 0 30px rgba(218, 165, 32, 0.6);
+					transform: scale(1.1);
+				}
+			}
+
+			@keyframes decorativeShimmer {
+				0%, 100% {
+					background: linear-gradient(45deg, #DAA520, #B8860B);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+				25% {
+					background: linear-gradient(90deg, #B8860B, #CD853F);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+				50% {
+					background: linear-gradient(135deg, #CD853F, #DAA520);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+				75% {
+					background: linear-gradient(180deg, #DAA520, #B8860B);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+
+			@keyframes decorativeFloat {
+				0%, 100% { 
+					transform: translateX(-50%) translateY(0px);
+				}
+				25% { 
+					transform: translateX(-50%) translateY(-1px);
+				}
+				50% { 
+					transform: translateX(-50%) translateY(0px);
+				}
+				75% { 
+					transform: translateX(-50%) translateY(1px);
+				}
+			}
+
+			@keyframes sideDecorativeFloat {
+				0%, 100% { 
+					transform: translateY(-50%) rotate(-90deg) scale(1);
+				}
+				50% { 
+					transform: translateY(-50%) rotate(-90deg) scale(1.05);
+				}
+			}
+
+			@keyframes sideDecorativeFloatRight {
+				0%, 100% { 
+					transform: translateY(-50%) rotate(90deg) scale(1);
+				}
+				50% { 
+					transform: translateY(-50%) rotate(90deg) scale(1.05);
+				}
+			}
+
 			.hero-title {
 				font-family: 'Dancing Script', cursive;
-				font-size: 4rem;
+				font-size: 5.5rem;
 				font-weight: 700;
 				margin-bottom: 1rem;
-				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+				text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
 			}
 
 			.hero-subtitle {
-				font-size: 1.5rem;
+				font-size: 2rem;
 				margin-bottom: 2rem;
-				font-weight: 300;
+				font-weight: 400;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 			}
 
 			.hero-decoration {
@@ -692,7 +984,11 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			/* Responsive */
 			@media (max-width: 768px) {
 				.hero-title {
-					font-size: 3rem;
+					font-size: 4.5rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.7rem;
 				}
 
 				.section-title {
@@ -730,9 +1026,55 @@ const eventDate = new Date('2025-10-18T21:30:00');
 					width: 120px;
 					height: 120px;
 				}
+
+				/* Marco decorativo responsive */
+				.decorative-frame {
+					padding: 2rem 2.5rem;
+					margin: 1rem auto;
+					border-radius: 15px;
+				}
+
+				.decorative-frame::after {
+					font-size: 1rem;
+					top: -6px;
+				}
+
+				.decorative-frame::before {
+					font-size: 1rem;
+					bottom: -6px;
+				}
+
+				.decorative-frame .corner-ornament {
+					width: 25px;
+					height: 25px;
+				}
+
+				.decorative-frame .corner-ornament::before {
+					font-size: 1rem;
+				}
+
+				.decorative-frame .side-decoration {
+					font-size: 1rem;
+				}
+
+				.decorative-frame .side-decoration.left-side {
+					left: -65px !important;
+				}
+
+				.decorative-frame .side-decoration.right-side {
+					right: -65px !important;
+				}
 			}
 
 			@media (max-width: 480px) {
+				.hero-title {
+					font-size: 3.5rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.4rem;
+				}
+
 				.floral-corner-image {
 					width: 140px;
 					height: 140px;
@@ -743,6 +1085,48 @@ const eventDate = new Date('2025-10-18T21:30:00');
 					width: 100px;
 					height: 100px;
 					opacity: 0.5;
+				}
+
+				/* Marco decorativo en móviles pequeños */
+				.decorative-frame {
+					padding: 1.5rem 2rem;
+					margin: 0.5rem auto;
+					border-radius: 12px;
+				}
+
+				.decorative-frame::before {
+					border-radius: 20px;
+				}
+
+				.decorative-frame::after {
+					font-size: 0.9rem;
+					top: -5px;
+				}
+
+				.decorative-frame::before {
+					font-size: 0.9rem;
+					bottom: -5px;
+				}
+
+				.decorative-frame .corner-ornament {
+					width: 20px;
+					height: 20px;
+				}
+
+				.decorative-frame .corner-ornament::before {
+					font-size: 0.9rem;
+				}
+
+				.decorative-frame .side-decoration {
+					font-size: 0.9rem;
+				}
+
+				.decorative-frame .side-decoration.left-side {
+					left: -50px !important;
+				}
+
+				.decorative-frame .side-decoration.right-side {
+					right: -50px !important;
 				}
 			}
 		</style>
