@@ -48,6 +48,9 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		</div>
 		<div class="hero-content">
 			<div class="decorative-frame">
+				<div class="frame-decoration top-decoration">
+					<img src="/decoracion_dorada.png" alt="Decoración dorada superior" class="golden-decoration" />
+				</div>
 				<div class="corner-ornament top-left"></div>
 				<div class="corner-ornament top-right"></div>
 				<div class="corner-ornament bottom-left"></div>
@@ -56,6 +59,9 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				<div class="side-decoration right-side">✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦</div>
 				<h1 class="hero-title">Milena</h1>
 				<p class="hero-subtitle">¡Celebra mis 15 años!</p>
+				<div class="frame-decoration bottom-decoration">
+					<img src="/decoracion_dorada.png" alt="Decoración dorada inferior" class="golden-decoration" />
+				</div>
 			</div>
 		</div>
 	</section>		<!-- Countdown Section -->
@@ -501,6 +507,40 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				transform: translateY(-50%) rotate(90deg);
 			}
 
+			/* Decoraciones doradas arriba y abajo del marco */
+			.decorative-frame .frame-decoration {
+				position: absolute;
+				left: 50%;
+				z-index: 5;
+			}
+
+			.decorative-frame .frame-decoration.top-decoration {
+				top: -40px;
+				transform: translateX(-50%);
+			}
+
+			.decorative-frame .frame-decoration.bottom-decoration {
+				bottom: -40px;
+				transform: translateX(-50%) rotate(180deg);
+			}
+
+			.decorative-frame .golden-decoration {
+				width: 200px;
+				height: auto;
+				opacity: 0.9;
+				filter: brightness(1.1) contrast(1.1) saturate(1.2);
+				transition: all 0.3s ease;
+				animation: goldenGlow 4s ease-in-out infinite;
+			}
+
+			.decorative-frame .frame-decoration.top-decoration {
+				animation: goldenDecorationFloat 5s ease-in-out infinite;
+			}
+
+			.decorative-frame .frame-decoration.bottom-decoration {
+				animation: goldenDecorationFloatBottom 5s ease-in-out infinite 1s;
+			}
+
 			/* Animación para el marco decorativo */
 			@keyframes frameGlow {
 				0%, 100% { 
@@ -671,6 +711,35 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				}
 				50% { 
 					transform: translateY(-50%) rotate(90deg) scale(1.05);
+				}
+			}
+
+			@keyframes goldenDecorationFloat {
+				0%, 100% { 
+					transform: translateX(-50%) translateY(0px) scale(1);
+				}
+				50% { 
+					transform: translateX(-50%) translateY(-3px) scale(1.05);
+				}
+			}
+
+			@keyframes goldenDecorationFloatBottom {
+				0%, 100% { 
+					transform: translateX(-50%) rotate(180deg) translateY(0px) scale(1);
+				}
+				50% { 
+					transform: translateX(-50%) rotate(180deg) translateY(-3px) scale(1.05);
+				}
+			}
+
+			@keyframes goldenGlow {
+				0%, 100% {
+					filter: brightness(1.1) contrast(1.1) saturate(1.2);
+					opacity: 0.9;
+				}
+				50% {
+					filter: brightness(1.3) contrast(1.2) saturate(1.4) drop-shadow(0 0 10px rgba(218, 165, 32, 0.6));
+					opacity: 1;
 				}
 			}
 
@@ -1064,6 +1133,19 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				.decorative-frame .side-decoration.right-side {
 					right: -65px !important;
 				}
+
+				/* Decoraciones doradas responsive */
+				.decorative-frame .golden-decoration {
+					width: 150px;
+				}
+
+				.decorative-frame .frame-decoration.top-decoration {
+					top: -30px;
+				}
+
+				.decorative-frame .frame-decoration.bottom-decoration {
+					bottom: -30px;
+				}
 			}
 
 			@media (max-width: 480px) {
@@ -1127,6 +1209,19 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 				.decorative-frame .side-decoration.right-side {
 					right: -50px !important;
+				}
+
+				/* Decoraciones doradas en móviles */
+				.decorative-frame .golden-decoration {
+					width: 120px;
+				}
+
+				.decorative-frame .frame-decoration.top-decoration {
+					top: -25px;
+				}
+
+				.decorative-frame .frame-decoration.bottom-decoration {
+					bottom: -25px;
 				}
 			}
 		</style>
