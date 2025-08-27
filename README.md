@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎉 Landing Page - 15 años de Milena
 
 Landing page elegante y moderna para celebrar los 15 años de Milena.
@@ -34,16 +33,3 @@ El sitio se deploya automáticamente en GitHub Pages:
 5. **Ubicación** - Mapa y dirección del evento
 6. **Música** - Formulario para sugerencias
 7. **Regalos** - Información para transferencias
-
-## � Enlaces Importantes
-
-- **Confirmar Asistencia:** https://forms.gle/XSBFwzXy42Fjv5SN6
-- **Sugerir Música:** https://forms.gle/TvhbW3bNQS9y9gZc7
-
----
-
-💕 Hecho con amor para Milena
-=======
-# 15demile.github.io
-landing page para el 15 de mile
->>>>>>> 0c8fc867cffc69ea0402535b9800f7207b227fb7
