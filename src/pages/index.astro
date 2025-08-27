@@ -48,11 +48,23 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		</div>
 		<div class="hero-content">
 			<div class="outer-flowers">
-				<div class="outer-flower top-flower">
-					<img src="/otra_flor_dorada.png" alt="Flor dorada superior" class="flower-decoration" />
+				<div class="outer-flower top-flower left-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada superior izquierda" class="flower-decoration" />
 				</div>
-				<div class="outer-flower bottom-flower">
-					<img src="/otra_flor_dorada.png" alt="Flor dorada inferior" class="flower-decoration" />
+				<div class="outer-flower top-flower center-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada superior centro" class="flower-decoration" />
+				</div>
+				<div class="outer-flower top-flower right-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada superior derecha" class="flower-decoration" />
+				</div>
+				<div class="outer-flower bottom-flower left-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada inferior izquierda" class="flower-decoration" />
+				</div>
+				<div class="outer-flower bottom-flower center-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada inferior centro" class="flower-decoration" />
+				</div>
+				<div class="outer-flower bottom-flower right-flower">
+					<img src="/otra_flor_dorada.png" alt="Flor dorada inferior derecha" class="flower-decoration" />
 				</div>
 			</div>
 			<div class="decorative-frame">
@@ -560,19 +572,52 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 			.outer-flower {
 				position: absolute;
-				left: 50%;
 			}
 
-			.outer-flower.top-flower {
+			.outer-flower.top-flower.center-flower {
 				top: -120px;
+				left: 50%;
 				transform: translateX(-50%);
 				animation: outerFlowerFloat 4s ease-in-out infinite, outerFlowerGlow 3s ease-in-out infinite;
 			}
 
-			.outer-flower.bottom-flower {
+			.outer-flower.top-flower.left-flower {
+				top: -120px;
+				left: 20%;
+				transform: translateX(-50%);
+				animation: outerFlowerFloat 4.5s ease-in-out infinite, outerFlowerGlow 3.5s ease-in-out infinite;
+				animation-delay: 0.5s, 0.3s;
+			}
+
+			.outer-flower.top-flower.right-flower {
+				top: -120px;
+				left: 80%;
+				transform: translateX(-50%);
+				animation: outerFlowerFloat 3.8s ease-in-out infinite, outerFlowerGlow 2.8s ease-in-out infinite;
+				animation-delay: 1s, 0.8s;
+			}
+
+			.outer-flower.bottom-flower.center-flower {
 				bottom: -120px;
+				left: 50%;
 				transform: translateX(-50%) rotate(180deg);
 				animation: outerFlowerFloatBottom 4s ease-in-out infinite, outerFlowerGlow 3s ease-in-out infinite;
+			}
+
+			.outer-flower.bottom-flower.left-flower {
+				bottom: -120px;
+				left: 20%;
+				transform: translateX(-50%) rotate(180deg);
+				animation: outerFlowerFloatBottom 4.2s ease-in-out infinite, outerFlowerGlow 3.2s ease-in-out infinite;
+				animation-delay: 0.7s, 0.4s;
+			}
+
+			.outer-flower.bottom-flower.right-flower {
+				bottom: -120px;
+				left: 80%;
+				transform: translateX(-50%) rotate(180deg);
+				animation: outerFlowerFloatBottom 4.8s ease-in-out infinite, outerFlowerGlow 3.8s ease-in-out infinite;
+				animation-delay: 1.2s, 1s;
 			}
 
 			.outer-flower .flower-decoration {
@@ -1223,12 +1268,26 @@ const eventDate = new Date('2025-10-18T21:30:00');
 					width: 70px;
 				}
 
-				.outer-flower.top-flower {
+				.outer-flower.top-flower.center-flower,
+				.outer-flower.top-flower.left-flower,
+				.outer-flower.top-flower.right-flower {
 					top: -100px;
 				}
 
-				.outer-flower.bottom-flower {
+				.outer-flower.bottom-flower.center-flower,
+				.outer-flower.bottom-flower.left-flower,
+				.outer-flower.bottom-flower.right-flower {
 					bottom: -100px;
+				}
+
+				.outer-flower.top-flower.left-flower,
+				.outer-flower.bottom-flower.left-flower {
+					left: 25%;
+				}
+
+				.outer-flower.top-flower.right-flower,
+				.outer-flower.bottom-flower.right-flower {
+					left: 75%;
 				}
 			}
 
@@ -1310,15 +1369,29 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 				/* Flores exteriores en móviles */
 				.outer-flower .flower-decoration {
-					width: 60px;
+					width: 50px;
 				}
 
-				.outer-flower.top-flower {
+				.outer-flower.top-flower.center-flower,
+				.outer-flower.top-flower.left-flower,
+				.outer-flower.top-flower.right-flower {
 					top: -80px;
 				}
 
-				.outer-flower.bottom-flower {
+				.outer-flower.bottom-flower.center-flower,
+				.outer-flower.bottom-flower.left-flower,
+				.outer-flower.bottom-flower.right-flower {
 					bottom: -80px;
+				}
+
+				.outer-flower.top-flower.left-flower,
+				.outer-flower.bottom-flower.left-flower {
+					left: 30%;
+				}
+
+				.outer-flower.top-flower.right-flower,
+				.outer-flower.bottom-flower.right-flower {
+					left: 70%;
 				}
 			}
 		</style>
