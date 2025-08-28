@@ -68,20 +68,22 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				</div>
 			</div>
 			<div class="decorative-frame">
-				<div class="frame-decoration top-decoration">
-					<img src="/decoracion_dorada.png" alt="Decoración dorada superior" class="golden-decoration" />
-				</div>
 				<div class="corner-ornament top-left"></div>
 				<div class="corner-ornament top-right"></div>
 				<div class="corner-ornament bottom-left"></div>
 				<div class="corner-ornament bottom-right"></div>
 				<div class="side-decoration left-side">✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦</div>
 				<div class="side-decoration right-side">✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦</div>
+				
+				<!-- Decoración superior dentro del marco -->
+				<div class="inner-decoration top-decoration"></div>
+				
 				<h1 class="hero-title">Milena</h1>
+				
+				<!-- Decoración inferior dentro del marco -->
+				<div class="inner-decoration bottom-decoration"></div>
+				
 				<p class="hero-subtitle">¡Celebra mis 15 años!</p>
-				<div class="frame-decoration bottom-decoration">
-					<img src="/decoracion_dorada.png" alt="Decoración dorada inferior" class="golden-decoration" />
-				</div>
 			</div>
 		</div>
 	</section>		<!-- Countdown Section -->
@@ -256,7 +258,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		/* Hero Section */
 		.hero {
 			height: 100vh;
-			background: linear-gradient(135deg, #ffbf1c 0%, #f8b877 100%);
+			background: linear-gradient(135deg, #f3c2ea 0%, #e8a5d8 100%);
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -291,11 +293,11 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		}
 
 		.floral-corner-image {
-			width: 200px;
-			height: 200px;
+			width: 250px;
+			height: 250px;
 			object-fit: contain;
-			opacity: 0.7;
-			filter: brightness(1.1) contrast(1.1);
+			opacity: 0.8;
+			filter: brightness(0.1) contrast(2) grayscale(1);
 			transition: all 0.3s ease;
 		}
 
@@ -305,11 +307,11 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		}
 
 		.floral-middle-image {
-			width: 150px;
-			height: 150px;
+			width: 180px;
+			height: 180px;
 			object-fit: contain;
-			opacity: 0.6;
-			filter: brightness(0.8) contrast(1.2) sepia(0.3) hue-rotate(20deg) saturate(1.1);
+			opacity: 0.7;
+			filter: brightness(0.1) contrast(2) grayscale(1);
 			transition: all 0.3s ease;
 		}
 
@@ -375,23 +377,23 @@ const eventDate = new Date('2025-10-18T21:30:00');
 		/* Efectos hover */
 		.hero:hover .floral-corner-image {
 			opacity: 0.9;
-			filter: brightness(1.2) contrast(1.2);
+			filter: brightness(0.15) contrast(2.2) grayscale(1);
 		}
 
 		.hero:hover .floral-middle-image {
 			opacity: 0.8;
-			filter: brightness(0.9) contrast(1.3) sepia(0.4) hue-rotate(20deg) saturate(1.2);
+			filter: brightness(0.15) contrast(2.2) grayscale(1);
 		}
 
 		/* Animación sutil */
 		@keyframes floralGlow {
-			0%, 100% { filter: brightness(1.1) contrast(1.1); }
-			50% { filter: brightness(1.2) contrast(1.2); }
+			0%, 100% { filter: brightness(0.1) contrast(2) grayscale(1); }
+			50% { filter: brightness(0.15) contrast(2.2) grayscale(1); }
 		}
 
 		@keyframes floralGlowMiddle {
-			0%, 100% { filter: brightness(0.8) contrast(1.2) sepia(0.3) hue-rotate(20deg) saturate(1.1); }
-			50% { filter: brightness(0.9) contrast(1.3) sepia(0.4) hue-rotate(20deg) saturate(1.2); }
+			0%, 100% { filter: brightness(0.1) contrast(2) grayscale(1); }
+			50% { filter: brightness(0.15) contrast(2.2) grayscale(1); }
 		}
 
 		.floral-corner-image {
@@ -418,58 +420,46 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 			.decorative-frame {
 				position: relative;
-				padding: 3rem 4rem;
+				padding: 3rem 4rem 2rem 4rem;
 				border: 3px solid;
-				border-image: linear-gradient(45deg, #DAA520, #B8860B, #CD853F, #DAA520) 1;
+				border-image: linear-gradient(45deg, #444, #666, #333, #555) 1;
 				border-radius: 20px;
 				margin: 2rem auto;
 				max-width: 600px;
-				background: rgba(255, 255, 255, 0.05);
+				background: rgba(0, 0, 0, 0.05);
 			}
 
-			.decorative-frame::before {
-				content: '✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦';
-				position: absolute;
-				top: -8px;
-				left: 50%;
-				background: linear-gradient(45deg, #DAA520, #B8860B);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
-				font-size: 1.2rem;
-				white-space: nowrap;
-				text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
-				animation: decorativeGlow 3s ease-in-out infinite, 
-				          decorativeShimmer 5s linear infinite,
-				          decorativeFloat 4s ease-in-out infinite;
+			/* Decoraciones internas del marco */
+			.inner-decoration {
+				position: relative;
+				width: 350px;
+				height: 40px;
+				margin: 0 auto;
+				background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 40"><g stroke="%23000" stroke-width="1.5" fill="none"><path d="M20 20 C40 10, 60 10, 80 20 C100 30, 120 30, 140 20 C160 10, 180 10, 190 20 C200 10, 220 10, 240 20 C260 30, 280 30, 300 20 C320 10, 340 10, 330 20"/><circle cx="175" cy="20" r="6" stroke="%23000" stroke-width="1.5" fill="none"/><circle cx="175" cy="20" r="3" fill="%23000"/><path d="M15 20 C10 15, 5 20, 10 25 C15 30, 20 25, 15 20" fill="%23000"/><path d="M335 20 C340 15, 345 20, 340 25 C335 30, 330 25, 335 20" fill="%23000"/><circle cx="60" cy="15" r="2" fill="%23000"/><circle cx="290" cy="25" r="2" fill="%23000"/><circle cx="120" cy="25" r="1.5" fill="%23000"/><circle cx="230" cy="15" r="1.5" fill="%23000"/></g></svg>');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				opacity: 0.7;
 			}
 
-			.decorative-frame::after {
-				content: '✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦ ❋ ✦';
-				position: absolute;
-				bottom: -8px;
-				left: 50%;
-				background: linear-gradient(45deg, #DAA520, #B8860B);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
-				font-size: 1.2rem;
-				white-space: nowrap;
-				text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
-				animation: decorativeGlow 3s ease-in-out infinite 0.5s, 
-				          decorativeShimmer 5s linear infinite 1s,
-				          decorativeFloat 4s ease-in-out infinite 1s;
+			.inner-decoration.top-decoration {
+				margin-bottom: 1rem;
+			}
+
+			.inner-decoration.bottom-decoration {
+				margin-top: 1rem;
+				margin-bottom: 0.5rem;
 			}
 
 			/* Decoraciones adicionales en las esquinas del marco */
 			.decorative-frame .corner-ornament {
 				position: absolute;
-				width: 30px;
-				height: 30px;
-				background: linear-gradient(45deg, #DAA520, #B8860B);
+				width: 35px;
+				height: 35px;
+				background: linear-gradient(45deg, #333, #555);
 				border-radius: 50%;
 				opacity: 0.8;
-				box-shadow: 0 0 15px rgba(218, 165, 32, 0.6);
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 			}
 
 			.decorative-frame .corner-ornament::before {
@@ -506,12 +496,12 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			/* Decoraciones laterales */
 			.decorative-frame .side-decoration {
 				position: absolute;
-				background: linear-gradient(45deg, #DAA520, #B8860B);
+				background: linear-gradient(45deg, #333, #555);
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
 				background-clip: text;
-				font-size: 1.2rem;
-				text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+				font-size: 1.4rem;
+				text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 				transform-origin: center;
 			}
 
@@ -525,40 +515,6 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				right: -80px !important;
 				top: 50%;
 				transform: translateY(-50%) rotate(90deg);
-			}
-
-			/* Decoraciones doradas arriba y abajo del marco */
-			.decorative-frame .frame-decoration {
-				position: absolute;
-				left: 50%;
-				z-index: 5;
-			}
-
-			.decorative-frame .frame-decoration.top-decoration {
-				top: -40px;
-				transform: translateX(-50%);
-			}
-
-			.decorative-frame .frame-decoration.bottom-decoration {
-				bottom: -40px;
-				transform: translateX(-50%) rotate(180deg);
-			}
-
-			.decorative-frame .golden-decoration {
-				width: 200px;
-				height: auto;
-				opacity: 0.9;
-				filter: brightness(1.1) contrast(1.1) saturate(1.2);
-				transition: all 0.3s ease;
-				animation: goldenGlow 4s ease-in-out infinite;
-			}
-
-			.decorative-frame .frame-decoration.top-decoration {
-				animation: goldenDecorationFloat 5s ease-in-out infinite;
-			}
-
-			.decorative-frame .frame-decoration.bottom-decoration {
-				animation: goldenDecorationFloatBottom 5s ease-in-out infinite 1s;
 			}
 
 			/* Flores exteriores arriba y abajo del marco */
@@ -621,20 +577,20 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			}
 
 			.outer-flower .flower-decoration {
-				width: 80px;
+				width: 100px;
 				height: auto;
 				opacity: 0.9;
-				filter: brightness(1.4) contrast(1.2) saturate(1.1) hue-rotate(-10deg);
+				filter: brightness(0.2) contrast(2) grayscale(1);
 				transition: all 0.3s ease;
 			}
 
 			/* Animación simplificada para el marco decorativo */
 			@keyframes frameGlow {
 				0%, 100% { 
-					box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+					box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 				}
 				50% { 
-					box-shadow: 0 0 25px rgba(218, 165, 32, 0.5);
+					box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 				}
 			}
 
@@ -707,44 +663,6 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				}
 			}
 
-			@keyframes decorativeShimmer {
-				0%, 100% {
-					background: linear-gradient(45deg, #DAA520, #B8860B);
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
-				}
-				25% {
-					background: linear-gradient(90deg, #B8860B, #CD853F);
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
-				}
-				50% {
-					background: linear-gradient(135deg, #CD853F, #DAA520);
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
-				}
-				75% {
-					background: linear-gradient(180deg, #DAA520, #B8860B);
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
-				}
-			}
-
-			@keyframes decorativeFloat {
-				0%, 100% { 
-					transform: translateX(-50%) translateY(0px);
-				}
-				25% { 
-					transform: translateX(-50%) translateY(-1px);
-				}
-				50% { 
-					transform: translateX(-50%) translateY(0px);
-				}
-				75% { 
-					transform: translateX(-50%) translateY(1px);
-				}
-			}
-
 			@keyframes sideDecorativeFloat {
 				0%, 100% { 
 					transform: translateY(-50%) rotate(-90deg) scale(1);
@@ -763,52 +681,26 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				}
 			}
 
-			@keyframes goldenDecorationFloat {
-				0%, 100% { 
-					transform: translateX(-50%) translateY(0px) scale(1);
-				}
-				50% { 
-					transform: translateX(-50%) translateY(-3px) scale(1.05);
-				}
-			}
-
-			@keyframes goldenDecorationFloatBottom {
-				0%, 100% { 
-					transform: translateX(-50%) rotate(180deg) translateY(0px) scale(1);
-				}
-				50% { 
-					transform: translateX(-50%) rotate(180deg) translateY(-3px) scale(1.05);
-				}
-			}
-
-			@keyframes goldenGlow {
-				0%, 100% {
-					filter: brightness(1.1) contrast(1.1) saturate(1.2);
-					opacity: 0.9;
-				}
-				50% {
-					filter: brightness(1.3) contrast(1.2) saturate(1.4) drop-shadow(0 0 10px rgba(218, 165, 32, 0.6));
-					opacity: 1;
-				}
-			}
-
 			@keyframes outerFlowerGlow {
 				0%, 100% {
 					opacity: 0.9;
-					filter: brightness(1.4) contrast(1.2) saturate(1.1) hue-rotate(-10deg);
+					filter: brightness(0.2) contrast(2) grayscale(1);
 				}
 				50% {
 					opacity: 1;
-					filter: brightness(1.7) contrast(1.4) saturate(1.3) hue-rotate(-5deg) drop-shadow(0 0 8px rgba(255, 223, 150, 0.6));
+					filter: brightness(0.3) contrast(2.2) grayscale(1) drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
 				}
 			}
 
 			.hero-title {
 				font-family: 'Dancing Script', cursive;
-				font-size: 5.5rem;
+				font-size: 8rem;
 				font-weight: 700;
 				margin-bottom: 1rem;
 				text-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+				text-align: center;
+				line-height: 1.1;
+				letter-spacing: 0.05em;
 			}
 
 			.hero-subtitle {
@@ -838,12 +730,12 @@ const eventDate = new Date('2025-10-18T21:30:00');
 				font-size: 3rem;
 				text-align: center;
 				margin-bottom: 3rem;
-				color: #8B7355;
+				color: #b86ba3;
 			}
 
 			/* Countdown Section */
 			.countdown-section {
-				background: linear-gradient(45deg, #DAA520 0%, #CD853F 100%);
+				background: linear-gradient(45deg, #e8a5d8 0%, #d687c5 100%);
 				color: white;
 			}
 
@@ -904,7 +796,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 			.event-item i {
 				font-size: 2rem;
-				color: #8B7355;
+				color: #b86ba3;
 			}
 
 			.action-buttons {
@@ -929,14 +821,14 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			}
 
 			.btn-primary {
-				background: linear-gradient(45deg, #B8860B, #8B7355);
+				background: linear-gradient(45deg, #d687c5, #b86ba3);
 				color: white;
 			}
 
 			.btn-secondary {
 				background: white;
-				color: #8B7355;
-				border: 2px solid #8B7355;
+				color: #b86ba3;
+				border: 2px solid #b86ba3;
 			}
 
 			.btn:hover {
@@ -959,7 +851,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 			.dress-code-item i {
 				font-size: 3rem;
-				color: #8B7355;
+				color: #b86ba3;
 				margin-bottom: 1rem;
 			}
 
@@ -996,7 +888,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			}
 
 			.location-info h3 {
-				color: #8B7355;
+				color: #b86ba3;
 				margin-bottom: 1rem;
 			}
 
@@ -1012,7 +904,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 			/* Music Suggestions */
 			.music-suggestions {
-				background: linear-gradient(45deg, #B8860B, #8B7355);
+				background: linear-gradient(45deg, #d687c5, #b86ba3);
 				color: white;
 				text-align: center;
 			}
@@ -1096,13 +988,13 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			}
 
 			.footer-credits a {
-				color: #B8860B;
+				color: #d687c5;
 				text-decoration: none;
 				transition: all 0.3s ease;
 			}
 
 			.footer-credits a:hover {
-				color: #8B7355;
+				color: #b86ba3;
 				text-decoration: underline;
 			}
 
@@ -1113,7 +1005,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 			/* Responsive */
 			@media (max-width: 768px) {
 				.hero-title {
-					font-size: 4.5rem;
+					font-size: 5rem;
 				}
 
 				.hero-subtitle {
@@ -1194,19 +1086,6 @@ const eventDate = new Date('2025-10-18T21:30:00');
 					right: -65px !important;
 				}
 
-				/* Decoraciones doradas responsive */
-				.decorative-frame .golden-decoration {
-					width: 150px;
-				}
-
-				.decorative-frame .frame-decoration.top-decoration {
-					top: -30px;
-				}
-
-				.decorative-frame .frame-decoration.bottom-decoration {
-					bottom: -30px;
-				}
-
 				/* Flores exteriores responsive */
 				.outer-flower .flower-decoration {
 					width: 70px;
@@ -1237,7 +1116,7 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 			@media (max-width: 480px) {
 				.hero-title {
-					font-size: 3.5rem;
+					font-size: 4rem;
 				}
 
 				.hero-subtitle {
@@ -1296,19 +1175,6 @@ const eventDate = new Date('2025-10-18T21:30:00');
 
 				.decorative-frame .side-decoration.right-side {
 					right: -50px !important;
-				}
-
-				/* Decoraciones doradas en móviles */
-				.decorative-frame .golden-decoration {
-					width: 120px;
-				}
-
-				.decorative-frame .frame-decoration.top-decoration {
-					top: -25px;
-				}
-
-				.decorative-frame .frame-decoration.bottom-decoration {
-					bottom: -25px;
 				}
 
 				/* Flores exteriores en móviles */
